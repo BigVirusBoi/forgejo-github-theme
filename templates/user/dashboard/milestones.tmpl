@@ -9,7 +9,7 @@
 			<nav aria-label="{{ctx.Locale.Tr "home.issues.in_your_repos"}}">
 				{{/* Forgejo fills RepoIDs with every listed repository when nothing is filtered. */}}
 				{{$unfiltered := eq (len .RepoIDs) (len .Repos)}}
-				<a class="{{if $unfiltered}}active{{end}}" href="?sort={{$.SortType}}&state={{$.State}}&q={{$.Keyword}}">{{svg "octicon-milestone" 16}}<span>{{ctx.Locale.Tr "home.issues.in_your_repos"}}</span><span class="theme-counter">{{.Total}}</span></a>
+				<a class="{{if $unfiltered}}active{{end}}" href="?sort={{$.SortType}}&state={{$.State}}&q={{$.Keyword}}">{{svg "octicon-repo" 16}}<span>{{ctx.Locale.Tr "home.issues.in_your_repos"}}</span><span class="theme-counter">{{.Total}}</span></a>
 					{{range .Repos}}
 						{{with $Repo := .}}
 							{{/* Single-select, as on GitHub: a repository shows only itself, and the selected one goes back to all. */}}
