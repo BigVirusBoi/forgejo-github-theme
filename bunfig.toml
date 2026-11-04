@@ -19,3 +19,13 @@
 
 [install]
 registry = "https://registry.npmjs.org"
+
+# Prevent typo-squatting or immediate supply chain compromises by delaying installs
+minimumReleaseAge = "3d"
+
+# Ensure strict lockfile matching to prevent dependency drift / lockfile poisoning
+frozenLockfile = true
+
+# Require explicit user permission to run lifecycle scripts for any new dependencies
+# Built-in trusted dependencies will still function, but arbitrary ones are blocked
+trustedDependencies = []
