@@ -4,6 +4,8 @@
 	<aside class="theme-sidebar" aria-label="{{.Title}}">
 		<div class="theme-sidebar-content">
 			{{template "components/dashboard/context/context" dict "Data" . "Page" "milestones"}}
+			{{template "components/dashboard/context/pages" dict "Data" . "Current" "milestones"}}
+			<hr>
 			<nav aria-label="{{ctx.Locale.Tr "home.issues.in_your_repos"}}">
 				{{/* Forgejo fills RepoIDs with every listed repository when nothing is filtered. */}}
 				{{$unfiltered := eq (len .RepoIDs) (len .Repos)}}
@@ -19,8 +21,6 @@
 						{{end}}
 					{{end}}
 			</nav>
-			<hr>
-			{{template "components/dashboard/context/pages" dict "Data" . "Current" "milestones"}}
 		</div>
 		{{template "components/common/sidebar/toggle" .}}
 	</aside>
